@@ -31,10 +31,11 @@ public class Order {
     public Order() {
     }
 
-    public Order(double advanceamount, double ordamount, String orderdescription) {
+    public Order(double advanceamount, double ordamount, Customer customer, String orderdescription) {
         this.advanceamount = advanceamount;
         this.ordamount = ordamount;
         this.orderdescription = orderdescription;
+        this.customer = customer;
     }
 
     public long getOrdnum() {
