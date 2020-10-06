@@ -12,17 +12,19 @@ public class Customer {
     @GeneratedValue
     private long custcode;
 
-    @Column
-    private String custcisty;
+    @Column(nullable = false)
+    private String custcity;
     private String custcountry;
     private String custname;
     private String grade;
-    private double openinggamt;
+    private double openingamt;
+    private double outstandingamt;
     private double paymentamt;
     private String phone;
     private double receiveamt;
+    private String workingarea;
 
-    @OneToMany(mappedBy = "orders",
+    @OneToMany(mappedBy = "customer",
     cascade = CascadeType.ALL,
     orphanRemoval = true)
     private List<Order> order = new ArrayList<>();
@@ -34,15 +36,17 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String custcisty, String custcountry, String custname, String grade, double openinggamt, double paymentamt, String phone, double receiveamt, Agent agent) {
-        this.custcisty = custcisty;
+    public Customer(String custcity, String custcountry, String custname, String grade, double openingamt, double outstandingamt, double paymentamt, String phone, double receiveamt, String workingarea, Agent agent) {
+        this.custcity = custcity;
         this.custcountry = custcountry;
         this.custname = custname;
         this.grade = grade;
-        this.openinggamt = openinggamt;
+        this.openingamt = openingamt;
+        this.outstandingamt = outstandingamt;
         this.paymentamt = paymentamt;
         this.phone = phone;
         this.receiveamt = receiveamt;
+        this.workingarea = workingarea;
         this.agent = agent;
     }
 
@@ -54,12 +58,12 @@ public class Customer {
         this.custcode = custcode;
     }
 
-    public String getCustcisty() {
-        return custcisty;
+    public String getCustcity() {
+        return custcity;
     }
 
-    public void setCustcisty(String custcisty) {
-        this.custcisty = custcisty;
+    public void setCustcity(String custcity) {
+        this.custcity = custcity;
     }
 
     public String getCustcountry() {
@@ -86,12 +90,20 @@ public class Customer {
         this.grade = grade;
     }
 
-    public double getOpeninggamt() {
-        return openinggamt;
+    public double getOpeningamt() {
+        return openingamt;
     }
 
-    public void setOpeninggamt(double openinggamt) {
-        this.openinggamt = openinggamt;
+    public void setOpeningamt(double openingamt) {
+        this.openingamt = openingamt;
+    }
+
+    public double getOutstandingamt() {
+        return outstandingamt;
+    }
+
+    public void setOutstandingamt(double outstandingamt) {
+        this.outstandingamt = outstandingamt;
     }
 
     public double getPaymentamt() {
@@ -116,6 +128,14 @@ public class Customer {
 
     public void setReceiveamt(double receiveamt) {
         this.receiveamt = receiveamt;
+    }
+
+    public String getWorkingarea() {
+        return workingarea;
+    }
+
+    public void setWorkingarea(String workingarea) {
+        this.workingarea = workingarea;
     }
 
     public Agent getAgent() {

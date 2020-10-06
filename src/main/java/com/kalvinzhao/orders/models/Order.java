@@ -10,7 +10,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long ordernum;
+    private long ordnum;
 
     @Column
     private double advanceamount;
@@ -23,9 +23,9 @@ public class Order {
 
     @ManyToMany()
     @JoinTable(name = "orderspayments",
-    joinColumns = @JoinColumn(name = "ordernum"),
+    joinColumns = @JoinColumn(name = "ordnum"),
     inverseJoinColumns =  @JoinColumn(name = "paymentid"))
-    private Set<Payments> payment = new HashSet<>();
+    private Set<Payment> payment = new HashSet<>();
 
 
     public Order() {
@@ -37,12 +37,12 @@ public class Order {
         this.orderdescription = orderdescription;
     }
 
-    public long getOrdernum() {
-        return ordernum;
+    public long getOrdnum() {
+        return ordnum;
     }
 
-    public void setOrdernum(long ordernum) {
-        this.ordernum = ordernum;
+    public void setOrdnum(long ordnum) {
+        this.ordnum = ordnum;
     }
 
     public double getAdvanceamount() {
@@ -77,11 +77,11 @@ public class Order {
         this.customer = customer;
     }
 
-    public Set<Payments> getPayment() {
+    public Set<Payment> getPayment() {
         return payment;
     }
 
-    public void setPayment(Set<Payments> payment) {
+    public void setPayment(Set<Payment> payment) {
         this.payment = payment;
     }
 }

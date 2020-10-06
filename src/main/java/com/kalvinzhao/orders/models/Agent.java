@@ -14,12 +14,12 @@ public class Agent {
 
     @Column(nullable = false)
     private String agentname;
-    private double commision;
+    private double commission;
     private String country;
     private String phone;
     private String workingarea;
 
-    @OneToMany(mappedBy = "agents",
+    @OneToMany(mappedBy = "agent",
         cascade = CascadeType.ALL, //cascadetype.all anything I do to the restaurant, I want to affect the menu
         orphanRemoval = true)
     private Set<Customer> customers = new HashSet<>();
@@ -27,9 +27,9 @@ public class Agent {
     public Agent() {
     }
 
-    public Agent(String agentname, double commision, String country, String phone, String workingarea) {
+    public Agent(String agentname, double commission, String country, String phone, String workingarea) {
         this.agentname = agentname;
-        this.commision = commision;
+        this.commission = commission;
         this.country = country;
         this.phone = phone;
         this.workingarea = workingarea;
@@ -51,12 +51,12 @@ public class Agent {
         this.agentname = agentname;
     }
 
-    public double getCommision() {
-        return commision;
+    public double getCommission() {
+        return commission;
     }
 
-    public void setCommision(double commision) {
-        this.commision = commision;
+    public void setCommission(double commission) {
+        this.commission = commission;
     }
 
     public String getCountry() {
